@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ExamPrep AI - NEET & JEE Practice</title>
+    <!-- We keep Tailwind CDN for simplicity in this setup, though normally you'd use PostCSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              background: '#09090b', // Zinc 950
+              surface: '#18181b',    // Zinc 900
+              surfaceHighlight: '#27272a', // Zinc 800
+              border: '#3f3f46',     // Zinc 700
+              primary: {
+                DEFAULT: '#22d3ee', // Cyan 400 (Neon)
+                hover: '#06b6d4',   // Cyan 500
+                dim: 'rgba(34, 211, 238, 0.1)',
+              }
+            },
+            fontFamily: {
+              sans: ['Inter', 'system-ui', 'sans-serif'],
+            },
+            animation: {
+              'fade-in': 'fadeIn 0.5s ease-out',
+              'slide-up': 'slideUp 0.5s ease-out',
+            },
+            keyframes: {
+              fadeIn: {
+                '0%': { opacity: '0' },
+                '100%': { opacity: '1' },
+              },
+              slideUp: {
+                '0%': { opacity: '0', transform: 'translateY(20px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      body {
+        background-color: #09090b;
+        color: #f4f4f5;
+        font-family: 'Inter', sans-serif;
+        overflow-x: hidden;
+      }
+      
+      /* Mesh Gradient Background */
+      .bg-mesh {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: -1;
+        background: 
+          radial-gradient(circle at 15% 50%, rgba(34, 211, 238, 0.08), transparent 25%), 
+          radial-gradient(circle at 85% 30%, rgba(56, 189, 248, 0.05), transparent 25%);
+        pointer-events: none;
+      }
+
+      /* Glassmorphism Utilities */
+      .glass-panel {
+        background: rgba(24, 24, 27, 0.6);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .glass-header {
+        background: rgba(9, 9, 11, 0.8);
+        backdrop-filter: blur(16px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #09090b;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #3f3f46;
+        border-radius: 10px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #52525b;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
+    "react/": "https://aistudiocdn.com/react@^19.2.1/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.32.0",
+    "@vitejs/plugin-react": "https://aistudiocdn.com/@vitejs/plugin-react@^5.1.2",
+    "vite": "https://aistudiocdn.com/vite@^7.2.7"
+  }
+}
+</script>
+</head>
+  <body>
+    <div class="bg-mesh"></div>
+    <div id="root"></div>
+    <!-- Vite Entry Point -->
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
